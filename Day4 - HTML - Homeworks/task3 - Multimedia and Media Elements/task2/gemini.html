@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+</head>
+<body>
+  <section>
+    <h2>My Favorite Hobby: Reading</h2>
+    <p>My favorite hobby is reading. I love getting lost in a good book and exploring new worlds. There's something magical about escaping reality for a while and immersing myself in a story.</p>
+    <ul>
+      <li>I enjoy learning new things through reading.</li>
+      <li>It's a great way to relax and de-stress.</li>
+      <li>I love the feeling of accomplishment when I finish a book.</li>
+    </ul>
+
+    <h3>Related Content</h3>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="video-controls">
+        <button class="play-pause">Play/Pause</button>
+        <input type="range" class="volume" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
+
+    <div class="audio-container">
+      <audio controls>
+        <source src="YOUR_AUDIO_FILE.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <div class="audio-controls">
+        <button class="play-pause">Play/Pause</button>
+        <input type="range" class="volume" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const video = document.querySelector('iframe');
+    const videoControls = document.querySelector('.video-controls');
+    const playPauseBtn = videoControls.querySelector('.play-pause');
+    const volumeInput = videoControls.querySelector('.volume');
+
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = 'Pause';
+      } else {
+        video.pause();
+        playPauseBtn.textContent = 'Play';
+      }
+    });
+
+    volumeInput.addEventListener('input', () => {
+      video.volume = volumeInput.value;
+    });
+
+    const audio = document.querySelector('audio');
+    const audioControls = document.querySelector('.audio-controls');
+    const audioPlayPauseBtn = audioControls.querySelector('.play-pause');
+    const audioVolumeInput = audioControls.querySelector('.volume');
+
+    audioPlayPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        audioPlayPauseBtn.textContent = 'Pause';
+      } else {
+        audio.pause();
+        audioPlayPauseBtn.textContent = 'Play';
+      }
+    });
+
+    audioVolumeInput.addEventListener('input', () => {
+      audio.volume = audioVolumeInput.value;
+    });
+  </script>
+</body>
+</html>

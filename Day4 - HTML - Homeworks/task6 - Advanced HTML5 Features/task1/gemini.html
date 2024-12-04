@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Theme Selector</title>
+</head>
+<body>
+  <select id="themeSelect">
+    <option value="blue">Blue</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+  </select>
+
+  <script>
+    const themeSelect = document.getElementById('themeSelect');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      body.style.backgroundColor = savedTheme;
+      themeSelect.value = savedTheme;
+    }
+
+    themeSelect.addEventListener('change', () => {
+      const selectedTheme = themeSelect.value;
+      body.style.backgroundColor = selectedTheme;
+      localStorage.setItem('theme', selectedTheme);
+    });
+  </script>
+</body>
+</html>

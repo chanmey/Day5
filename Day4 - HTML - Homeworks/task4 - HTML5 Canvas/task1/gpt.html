@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Webpage</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Name -->
+    <header>
+        <h1>Your Name</h1>
+    </header>
+
+    <!-- Section with Description -->
+    <section>
+        <h2>About Me</h2>
+        <p>Hello! I'm [Your Name], a person who enjoys reading, exploring new ideas, and diving deep into the world of creativity and knowledge. I believe that books open doors to new perspectives and endless possibilities.</p>
+    </section>
+
+    <!-- Favorite Hobby Section -->
+    <h2>My First Webpage</h2>
+    <p>One of my favorite hobbies is reading. I love diving into different worlds, exploring new ideas, and learning from the perspectives of various authors.</p>
+
+    <h3>Things I Enjoy About Reading:</h3>
+    <ul>
+        <li>It helps me relax and unwind.</li>
+        <li>Reading stimulates my imagination and creativity.</li>
+        <li>I learn new things and gain different perspectives.</li>
+    </ul>
+
+    <!-- Media Section -->
+    <section>
+        <h2>Drawing on Canvas</h2>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+    </section>
+
+    <!-- Footer with Contact Information -->
+    <footer>
+        <p>Contact me at: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </footer>
+
+    <script>
+        // Get the canvas element and its context
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw a rectangle
+        ctx.fillStyle = 'blue'; // Set color to blue
+        ctx.fillRect(50, 50, 100, 50); // Draw rectangle (x, y, width, height)
+
+        // Draw a circle
+        ctx.fillStyle = 'red'; // Set color to red
+        ctx.beginPath(); // Start a new path
+        ctx.arc(200, 150, 40, 0, Math.PI * 2); // Draw circle (x, y, radius, startAngle, endAngle)
+        ctx.fill(); // Fill the circle
+
+        // Draw a line
+        ctx.strokeStyle = 'green'; // Set color to green
+        ctx.lineWidth = 5; // Set line width
+        ctx.beginPath(); // Start a new path
+        ctx.moveTo(50, 200); // Move to starting point (x, y)
+        ctx.lineTo(350, 200); // Draw line to point (x, y)
+        ctx.stroke(); // Apply the stroke
+    </script>
+
+</body>
+</html>

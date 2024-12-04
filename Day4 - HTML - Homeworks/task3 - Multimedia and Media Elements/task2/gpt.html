@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Webpage</title>
+    <style>
+        .controls {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Name -->
+    <header>
+        <h1>Your Name</h1>
+    </header>
+
+    <!-- Section with Description -->
+    <section>
+        <h2>About Me</h2>
+        <p>Hello! I'm [Your Name], a person who enjoys reading, exploring new ideas, and diving deep into the world of creativity and knowledge. I believe that books open doors to new perspectives and endless possibilities.</p>
+    </section>
+
+    <!-- Favorite Hobby Section -->
+    <h2>My First Webpage</h2>
+    <p>One of my favorite hobbies is reading. I love diving into different worlds, exploring new ideas, and learning from the perspectives of various authors.</p>
+
+    <h3>Things I Enjoy About Reading:</h3>
+    <ul>
+        <li>It helps me relax and unwind.</li>
+        <li>Reading stimulates my imagination and creativity.</li>
+        <li>I learn new things and gain different perspectives.</li>
+    </ul>
+
+    <!-- Embedded YouTube Video -->
+    <section>
+        <h2>Related Video</h2>
+        <p>Here's a great video about the benefits of reading:</p>
+        <div>
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/VideoID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="controls">
+            <button onclick="playVideo()">Play</button>
+            <button onclick="pauseVideo()">Pause</button>
+            <input type="range" id="volumeControl" min="0" max="100" value="100" onchange="setVolume(this.value)" />
+        </div>
+    </section>
+
+    <!-- Embedded Audio File -->
+    <section>
+        <h2>Audio Section</h2>
+        <p>Listen to this audio file related to creativity:</p>
+        <audio id="audio" controls>
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="controls">
+            <button onclick="playAudio()">Play</button>
+            <button onclick="pauseAudio()">Pause</button>
+            <input type="range" id="audioVolumeControl" min="0" max="1" step="0.1" value="1" onchange="setAudioVolume(this.value)" />
+        </div>
+    </section>
+
+    <!-- Footer with Contact Information -->
+    <footer>
+        <p>Contact me at: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </footer>
+
+    <script>
+        // YouTube video controls
+        function playVideo() {
+            document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+
+        function pauseVideo() {
+            document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+
+        function setVolume(value) {
+            // YouTube API does not support volume control through postMessage, so this will not affect volume.
+            alert('YouTube volume control is not available through this method. Please use the YouTube player controls.');
+        }
+
+        // Audio controls
+        const audio = document.getElementById('audio');
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        function setAudioVolume(value) {
+            audio.volume = value;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+</head>
+<body>
+
+    <h1>Contact Information Form</h1>
+
+    <form action="/submit-form" method="post">
+        <!-- Name Field -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <!-- Email Field (Required & Properly Formatted) -->
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <!-- Phone Number Field (Numeric Values Only) -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]+" required>
+        <br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

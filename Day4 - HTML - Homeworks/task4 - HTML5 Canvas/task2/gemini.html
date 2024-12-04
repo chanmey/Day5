@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Drawing App</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+        .toolbar {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar">
+        <label for="colorPicker">Choose Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+        <label for="lineWidth">Line Width:</label>
+        <input type="number" id="lineWidth" value="5" min="1" max="50">
+        <button id="clearButton">Clear Canvas</button>
+    </div>
+
+    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+
+        // Set up mouse events
+        canvas.addEventListener('mousedown', (e) => {
+            drawing = true;
+            ctx.beginPath(); // Start a new path
+            ctx.moveTo(e.offsetX, e.offsetY); // Move to the click position
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (drawing) {
+                ctx.lineTo(e.offsetX, e.offsetY); // Draw a line to the current position
+                ctx.strokeStyle = document.getElementById('colorPicker').value; // Set the stroke color
+                ctx.lineWidth = document.getElementById('lineWidth').value; // Set the line width
+                ctx.stroke(); // Render the line
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            drawing = false; // Stop drawing
+            ctx.closePath(); // Close the path
+        });
+
+        canvas.addEventListener('mouseout', () => {
+            drawing = false; // Stop drawing if the mouse leaves the canvas
+            ctx.closePath(); // Close the path
+        });
+
+        // Clear the canvas
+        document.getElementById('clearButton').addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
+        });
+    </script>
+
+</body>
+</html>
